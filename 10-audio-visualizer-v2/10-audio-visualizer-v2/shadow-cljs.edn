@@ -1,0 +1,10 @@
+{:source-paths ["src"]
+ :dependencies [[reagent/reagent "2.0.1"]]
+ :dev-http     {8001 "public"}
+ :builds
+ {:app
+  {:target     :browser
+   :output-dir "public/js"
+   :asset-path "/js"
+   :compiler-options {:external-config {:react {:development true}}}
+   :modules    {:main {:init-fn myapp.core/init :entries [myapp.core]}}}}}

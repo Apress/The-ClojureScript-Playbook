@@ -1,0 +1,44 @@
+{
+  "build": {
+    "beforeBuildCommand": "npx shadow-cljs release app",
+    "frontendDist": "../public",
+    "devUrl": "http://localhost:8001"
+  },
+  "bundle": {
+    "active": true,
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "targets": "all"
+  },
+  "productName": "Audio Visualizer",
+  "mainBinaryName": "Audio Visualizer",
+  "version": "0.1.0",
+  "identifier": "com.cajuns.audio-visualizer",
+  "plugins": {},
+  "app": {
+    "windows": [
+      {
+        "fullscreen": false,
+        "resizable": true,
+        "title": "Audio Visualizer",
+        "width": 1200,
+        "height": 800,
+        "decorations": true,
+        "transparent": false,
+        "useHttpsScheme": true
+      }
+    ],
+    "trayIcon": {
+      "iconPath": "icons/icon.png",
+      "iconAsTemplate": true
+    },
+    "security": {
+      "csp": null
+    }
+  }
+}

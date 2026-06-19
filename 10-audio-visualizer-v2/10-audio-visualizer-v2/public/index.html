@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Audio Visualizer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow: hidden;
+            background: #000;
+        }
+
+        canvas {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        /* Control Panel Styles */
+        .control-row {
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .control-row label {
+            font-weight: 600;
+            font-size: 14px;
+            min-width: 100px;
+            color: #00FFAA;
+        }
+
+        .control-row input[type="range"] {
+            flex: 1;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 2px;
+            outline: none;
+        }
+
+        .control-row input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 16px;
+            height: 16px;
+            background: #00FFAA;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .control-row .value {
+            min-width: 40px;
+            text-align: right;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        button {
+            padding: 10px 16px;
+            border: 1px solid rgba(0, 255, 170, 0.5);
+            background: rgba(0, 255, 170, 0.1);
+            color: #00FFAA;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s;
+            font-weight: 600;
+        }
+
+        button:hover {
+            background: rgba(0, 255, 170, 0.2);
+            border-color: #00FFAA;
+        }
+
+        button.active {
+            background: #00FFAA;
+            color: #000;
+        }
+
+        .mode-buttons,
+        .color-buttons,
+        .source-buttons {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
+
+        .mode-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 12px;
+            min-width: 80px;
+        }
+
+        .mode-btn .icon {
+            font-size: 24px;
+            margin-bottom: 4px;
+        }
+
+        .mode-btn .label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .color-btn {
+            text-transform: capitalize;
+        }
+
+        .current-file {
+            margin-top: 10px;
+            padding: 8px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 4px;
+            font-size: 12px;
+            color: #00FFAA;
+        }
+
+        .special-btn {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+        }
+
+        .keyboard-hints code {
+            background: rgba(0, 255, 170, 0.2);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+            color: #00FFAA;
+        }
+
+        h3 {
+            text-shadow: 0 0 20px rgba(0, 255, 170, 0.5);
+        }
+
+        h4 {
+            color: #fff;
+            margin: 15px 0 10px 0;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        hr {
+            opacity: 0.5;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="waveform" width="1200" height="800"></canvas>
+    <div id="controls"></div>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

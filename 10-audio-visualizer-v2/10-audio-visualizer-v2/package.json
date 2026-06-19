@@ -1,0 +1,26 @@
+{
+  "name": "audio-visualizer",
+  "version": "0.1.0",
+  "description": "Real-time audio visualizer built with Tauri and ClojureScript",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"npm run shadow:watch\" \"npm run tauri:dev\"",
+    "shadow:watch": "shadow-cljs watch app",
+    "shadow:release": "shadow-cljs release app",
+    "tauri:dev": "tauri dev",
+    "tauri:build": "tauri build",
+    "build": "npm run shadow:release && npm run tauri:build"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.0.0",
+    "concurrently": "^8.2.2",
+    "shadow-cljs": "^3.3.5"
+  },
+  "dependencies": {
+    "@tauri-apps/plugin-dialog": "^2.7.0",
+    "@tauri-apps/plugin-fs": "^2.5.0",
+    "@tauri-apps/plugin-shell": "^2.3.5",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  }
+}
